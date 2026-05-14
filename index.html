@@ -18,6 +18,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
+    <script>
+      // Restore path from GitHub Pages 404.html SPA redirect
+      (function () {
+        var q = new URLSearchParams(window.location.search);
+        var p = q.get('p');
+        if (p) {
+          q.delete('p');
+          var remaining = q.toString();
+          var url = p + (remaining ? '?' + remaining : '') + window.location.hash;
+          window.history.replaceState(null, '', url);
+        }
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
