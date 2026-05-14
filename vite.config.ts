@@ -15,7 +15,7 @@ const port = Number(process.env.PORT || "5173");
 const basePath = normalizeBase(process.env.BASE_PATH);
 
 export default defineConfig({
-  base: basePath,
+  base: "/TylerSharkeyPortfolio/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
