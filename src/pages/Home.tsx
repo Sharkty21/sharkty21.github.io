@@ -202,43 +202,56 @@ const AboutSection = () => {
   );
 };
 
-const ExperienceSection = () => {
-  const roles = [
-    {
-      title: "Development Team Lead",
-      company: "Origami Risk - Chicago, IL",
-      description: "Leading 7 engineers, driving AI systems architecture and maintaining exceptional sprint velocity. Led 100+ successful consecutive sprints over multiple year period.",
+const experienceData = [
+  {
+    company: "Origami Risk",
+    location: "Chicago, IL",
+    roles: [
+      {
+        title: "Development Team Lead",
+        description: "Leading 7 engineers, driving AI systems architecture and maintaining exceptional sprint velocity. Led 100+ successful consecutive sprints over multiple year period.",
       highlights: [
-        "Led architecture and delivery of AI Policy Ingestion solution, headlining Origami’s recognition as a Market Leader in 2026 Annual RMIS Report. AWS Bedrock, Langfuse & Temporal async workflow for scanning PDFs, matching existing db records, creating records.",
-        "Led architecture and delivery of AI Policy Ingestion solution, headlining Origami’s recognition as a Market Leader in 2026 Annual RMIS Report. AWS Bedrock, Langfuse & Temporal async workflow for scanning PDFs, matching existing db records, creating records.",
-        "Top 6/100 all-time contributors to main code repo",
-        "Implemented SDLC improvements including AI automated code review, repo level Cursor skills for repetitive tasks, PR templates, spike workflows, code review standards, onboarding processes and development documentation. My documentation has over 24k views and the highest reputation score (421) in StackOverflow."
+        "Led architecture and delivery of AI Policy Ingestion solution, headlining Origami's recognition as a Market Leader in 2026 Annual RMIS Report. AWS Bedrock, Langfuse & Temporal async workflow for scanning PDFs, matching existing db records, creating records.",
+        "Led architecture and delivery of AI Policy Ingestion solution, headlining Origami's recognition as a Market Leader in 2026 Annual RMIS Report. AWS Bedrock, Langfuse & Temporal async workflow for scanning PDFs, matching existing db records, creating records.",
+        "Owned a zero‑downtime migration of global email infrastructure from legacy batch jobs that failed every few months to AWS cloud services. Processed 20mil+ emails without issue since.",
+        "Served as primary technical escalation and ‘tiger team’ technical lead for security incidents, maintaining composure and clear communication to internal and client executive levels.",
+        "Built and led a high‑performing team, increasing velocity while maintaining near‑perfect sprint completion. Increased 7 engineer team velocity 106.5% and tickets completed 36.5%.",
+        "Introduced modern engineering practices (React, TanStack Query, Auth0, service/repository patterns) adopted org‑wide.",
+        "Implemented SDLC improvements including AI automated code review, repo level Cursor skills for repetitive tasks, PR templates, spike workflows, code review standards, onboarding processes and development documentation. My documentation has over 24k views and the highest reputation score (421) in StackOverflow.",
+        "Led hiring and internship programs; mentored junior engineers into strong contributors and promotions. Promoted 3 full time engineers and 5+ interns mentored by me were hired.",
+        "Top 6/100 all-time contributors to main code repo"
       ]
     },
     {
       title: "Associate Dev Team Lead",
-      company: "Origami Risk - Chicago, IL",
       description: "Quickly promoted from Product Engineer to management role, mentored interns and junior engineers, managed complex feature rollouts, and managed through agile transformation.",
       highlights: [
-        "Zero-downtime migration of global email infrastructure (20M+ emails) to AWS.",
-        "Led 3 consecutive internship programs, leading to 5+ interns hired.",
+        "Implemented Agile transformation and sprint adoption, improving delivery predictability across teams. Led 95+ consecutive sprints since inception.",
+        "Developed complex CMS and compliance solutions spanning healthcare, risk, and security domains.",
         "Led the first security sprint team, contributing to a successful Mandiant audit."
       ]
     },
     {
       title: "Product Engineer",
-      company: "Origami Risk - Chicago, IL",
       description: "Delivered robust product features, established foundational code patterns, and advocated for rigorous code quality.",
       highlights: []
-    },
-    {
-      title: "Product Development Engineer",
-      company: "Panduit - Tinley Park, IL",
-      description: "Mechanical design and test engineer for network infrastructure solutions.",
-      highlights: []
     }
-  ];
+    ]
+  },
+  {
+    company: "Panduit",
+    location: "Tinley Park, IL",
+    roles: [
+      {
+        title: "Product Development Engineer",
+        description: "Mechanical design and test engineer for network infrastructure solutions.",
+        highlights: []
+      }
+    ]
+  }
+];
 
+const ExperienceSection = () => {
   return (
     <section id="experience" className="py-16 md:py-24 border-t border-border/40">
       <motion.div
@@ -249,24 +262,31 @@ const ExperienceSection = () => {
       >
         <motion.h2 variants={fadeInUp} className="text-sm font-bold tracking-widest text-primary uppercase mb-16">Experience & Impact</motion.h2>
         
-        <div className="space-y-16">
-          {roles.map((role, idx) => (
-            <motion.div key={idx} variants={fadeInUp} className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              <div className="md:col-span-3">
-                <h3 className="text-2xl font-semibold text-foreground mb-1">{role.title}</h3>
-                <p className="text-primary font-medium mb-4">{role.company}</p>
-                <p className="text-muted-foreground leading-relaxed mb-6 max-w-2xl">{role.description}</p>
-                
-                {role.highlights.length > 0 && (
-                  <ul className="space-y-3">
-                    {role.highlights.map((highlight, i) => (
-                      <li key={i} className="flex items-start gap-3 text-sm text-foreground/80 max-w-2xl">
-                        <ChevronRight className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+        <div className="space-y-14">
+          {experienceData.map((comp, ci) => (
+            <motion.div key={ci} variants={fadeInUp}>
+              <div className="flex items-baseline gap-2 mb-6">
+                <h3 className="text-lg font-semibold text-foreground">{comp.company}</h3>
+                <span className="text-sm text-muted-foreground">{comp.location}</span>
+              </div>
+              <div className="border-l-2 border-primary/25 pl-6 sm:pl-8 space-y-12">
+                {comp.roles.map((role, ri) => (
+                  <div key={ri} className="relative">
+                    <h4 className="text-xl font-semibold text-foreground mb-1">{role.title}</h4>
+                    <p className="text-muted-foreground leading-relaxed mb-5 max-w-2xl">{role.description}</p>
+                    
+                    {role.highlights.length > 0 && (
+                      <ul className="space-y-3">
+                        {role.highlights.map((highlight, i) => (
+                          <li key={i} className="flex items-start gap-3 text-sm text-foreground/80 max-w-2xl">
+                            <ChevronRight className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                            <span>{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
               </div>
             </motion.div>
           ))}
