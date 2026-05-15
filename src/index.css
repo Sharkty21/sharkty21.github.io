@@ -164,10 +164,19 @@
   100% { transform: translateY(0); }
 }
 
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 .animate-marquee-up {
   animation: marquee-up 35s linear infinite;
 }
 
 .animate-marquee-down {
   animation: marquee-down 35s linear infinite;
+}
+
+.animate-marquee-left {
+  animation: marquee-left 30s linear infinite;
 }

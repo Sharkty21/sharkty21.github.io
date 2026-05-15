@@ -16,7 +16,7 @@ import purdueLogo from "/assets/Purdue.svg";
 
 // Animation Variants
 const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
 };
 
@@ -34,7 +34,7 @@ const NavBar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
       <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-end">
-        <div className="flex items-center gap-6 text-sm font-medium text-muted-foreground">
+        <div className="flex items-center gap-4 sm:gap-6 text-sm font-medium text-muted-foreground">
           <a href="#about" className="hover:text-foreground transition-colors">About</a>
           <a href="#experience" className="hover:text-foreground transition-colors">Experience</a>
           <a href="#projects" className="hover:text-foreground transition-colors">Projects</a>
@@ -86,6 +86,29 @@ const SkillMarqueeColumn = ({ skills, direction }: { skills: typeof skillsColumn
   );
 };
 
+const allSkills = [...skillsColumnA, ...skillsColumnB];
+
+const SkillMarqueeRow = () => {
+  const doubled = [...allSkills, ...allSkills];
+  return (
+    <div className="relative w-full overflow-hidden">
+      <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+      <div className="animate-marquee-left flex gap-3 w-max">
+        {doubled.map((skill, i) => (
+          <div
+            key={`${skill.label}-${i}`}
+            className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-border/40 bg-background/60 backdrop-blur-sm shrink-0"
+          >
+            <skill.icon className="w-4 h-4 text-muted-foreground shrink-0" />
+            <span className="text-sm font-medium text-foreground/80 whitespace-nowrap">{skill.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const HeroSection = () => {
   return (
     <section id="hero" className="min-h-[90vh] flex items-center pt-20 pb-16">
@@ -94,18 +117,18 @@ const HeroSection = () => {
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="max-w-3xl shrink-0"
+          className="max-w-3xl lg:shrink-0 min-w-0"
         >
           <motion.div variants={fadeInUp} className="flex items-center gap-2 text-muted-foreground mb-6">
             <MapPin className="w-4 h-4" />
             <span className="text-sm font-medium tracking-wide uppercase">Chicago, IL</span>
           </motion.div>
           
-          <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-6 leading-tight">
+          <motion.h1 variants={fadeInUp} className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-foreground mb-6 leading-tight">
             Tyler Sharkey
           </motion.h1>
           
-          <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-muted-foreground font-light mb-10 max-w-2xl leading-relaxed">
+          <motion.p variants={fadeInUp} className="text-lg sm:text-xl md:text-2xl text-muted-foreground font-light mb-10 max-w-2xl leading-relaxed">
             Lead Software Engineer & AI Systems Architect. Designing robust, scalable architectures with a focus on precision and performance.
           </motion.p>
           
@@ -129,6 +152,13 @@ const HeroSection = () => {
               </Button>
             </div>
           </motion.div>
+
+          <motion.div
+            variants={fadeInUp}
+            className="mt-10 lg:hidden -mx-6 sm:-mx-8"
+          >
+            <SkillMarqueeRow />
+          </motion.div>
         </motion.div>
 
         <motion.div
@@ -147,11 +177,11 @@ const HeroSection = () => {
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-24 border-t border-border/40">
+    <section id="about" className="py-16 md:py-24 border-t border-border/40">
       <motion.div 
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "-50px" }}
         variants={fadeInUp}
         className="max-w-4xl"
       >
@@ -176,7 +206,7 @@ const ExperienceSection = () => {
   const roles = [
     {
       title: "Development Team Lead",
-      company: "Origami Risk",
+      company: "Origami Risk - Chicago, IL",
       description: "Leading 7 engineers, driving AI systems architecture and maintaining exceptional sprint velocity. Led 100+ successful consecutive sprints over multiple year period.",
       highlights: [
         "Led architecture and delivery of AI Policy Ingestion solution, headlining Origami’s recognition as a Market Leader in 2026 Annual RMIS Report. AWS Bedrock, Langfuse & Temporal async workflow for scanning PDFs, matching existing db records, creating records.",
@@ -187,7 +217,7 @@ const ExperienceSection = () => {
     },
     {
       title: "Associate Dev Team Lead",
-      company: "Origami Risk",
+      company: "Origami Risk - Chicago, IL",
       description: "Quickly promoted from Product Engineer to management role, mentored interns and junior engineers, managed complex feature rollouts, and managed through agile transformation.",
       highlights: [
         "Zero-downtime migration of global email infrastructure (20M+ emails) to AWS.",
@@ -197,24 +227,24 @@ const ExperienceSection = () => {
     },
     {
       title: "Product Engineer",
-      company: "Origami Risk",
+      company: "Origami Risk - Chicago, IL",
       description: "Delivered robust product features, established foundational code patterns, and advocated for rigorous code quality.",
       highlights: []
     },
     {
       title: "Product Development Engineer",
-      company: "Panduit",
+      company: "Panduit - Tinley Park, IL",
       description: "Mechanical design and test engineer for network infrastructure solutions.",
       highlights: []
     }
   ];
 
   return (
-    <section id="experience" className="py-24 border-t border-border/40">
+    <section id="experience" className="py-16 md:py-24 border-t border-border/40">
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "-50px" }}
         variants={staggerContainer}
       >
         <motion.h2 variants={fadeInUp} className="text-sm font-bold tracking-widest text-primary uppercase mb-16">Experience & Impact</motion.h2>
@@ -248,12 +278,12 @@ const ExperienceSection = () => {
 
 const AwardsSection = () => {
   return (
-    <section className="py-24 border-t border-border/40 bg-secondary/30 -mx-6 px-6 sm:-mx-8 sm:px-8">
+    <section className="py-16 md:py-24 border-t border-border/40 bg-secondary/30 -mx-6 px-6 sm:-mx-8 sm:px-8">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "-50px" }}
           variants={staggerContainer}
         >
           <motion.h2 variants={fadeInUp} className="text-sm font-bold tracking-widest text-primary uppercase mb-12">Recognition & Awards</motion.h2>
@@ -304,15 +334,21 @@ const AwardsSection = () => {
   );
 };
 
-const ArrowRight = () => (
-  <svg width="28" height="12" viewBox="0 0 28 12" fill="none" className="shrink-0 text-zinc-300 dark:text-zinc-600">
+const ArrowHorizontal = () => (
+  <svg width="28" height="12" viewBox="0 0 28 12" fill="none" className="shrink-0 text-zinc-300 dark:text-zinc-600 hidden md:block">
     <path d="M0 6H24M24 6L19 1M24 6L19 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const ArrowDown = () => (
+  <svg width="12" height="28" viewBox="0 0 12 28" fill="none" className="shrink-0 text-zinc-300 dark:text-zinc-600 md:hidden mx-auto">
+    <path d="M6 0V24M6 24L1 19M6 24L11 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
 const ArchDiagram = () => (
   <div className="w-full select-none">
-    <div className="relative rounded-2xl border border-blue-200/30 dark:border-blue-800/20 bg-blue-50/20 dark:bg-blue-950/10 p-6 md:p-8 pt-8 md:pt-10">
+    <div className="relative rounded-2xl border border-blue-200/30 dark:border-blue-800/20 bg-blue-50/20 dark:bg-blue-950/10 p-5 sm:p-6 md:p-8 pt-8 md:pt-10">
       <div className="absolute -top-3 left-5">
         <span className="inline-flex items-center gap-1.5 bg-blue-500 text-white text-[11px] font-medium tracking-wide px-3 py-1 rounded-full shadow-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-white/80" />
@@ -320,14 +356,15 @@ const ArchDiagram = () => (
         </span>
       </div>
 
-      <div className="flex items-center gap-3 md:gap-4">
+      <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3 md:gap-4">
         <div className="flex-1 min-w-0 rounded-xl bg-white dark:bg-zinc-900 shadow-sm border border-zinc-100 dark:border-zinc-800 p-4">
           <span className="text-[11px] font-medium text-blue-500 tracking-wide">Frontend</span>
           <p className="text-sm font-semibold text-foreground mt-1.5 leading-snug">React &middot; TypeScript</p>
           <p className="text-xs text-muted-foreground mt-0.5">Vite &middot; TanStack Query &middot; shadcn &middot; Tailwind</p>
         </div>
 
-        <ArrowRight />
+        <ArrowHorizontal />
+        <ArrowDown />
 
         <div className="flex-1 min-w-0 rounded-xl bg-white dark:bg-zinc-900 shadow-sm border border-zinc-100 dark:border-zinc-800 p-4">
           <span className="text-[11px] font-medium text-emerald-500 tracking-wide">API Backend</span>
@@ -339,7 +376,8 @@ const ArchDiagram = () => (
           </div>
         </div>
 
-        <ArrowRight />
+        <ArrowHorizontal />
+        <ArrowDown />
 
         <div className="flex-1 min-w-0 rounded-xl bg-white dark:bg-zinc-900 shadow-sm border border-zinc-100 dark:border-zinc-800 p-4">
           <span className="text-[11px] font-medium text-amber-500 tracking-wide">Database</span>
@@ -367,11 +405,11 @@ const ArchDiagram = () => (
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-24 border-t border-border/40">
+    <section id="projects" className="py-16 md:py-24 border-t border-border/40">
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "-50px" }}
         variants={staggerContainer}
       >
         <motion.h2 variants={fadeInUp} className="text-sm font-bold tracking-widest text-primary uppercase mb-16">Personal Projects</motion.h2>
@@ -500,11 +538,11 @@ const TechStackSection = () => {
   const toggle = (id: string) => setOpen(prev => prev === id ? null : id);
 
   return (
-    <section className="py-24 border-t border-border/40">
+    <section className="py-16 md:py-24 border-t border-border/40">
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "-50px" }}
         variants={staggerContainer}
       >
         <motion.h2 variants={fadeInUp} className="text-sm font-bold tracking-widest text-primary uppercase mb-12">Tech Stack & Tools</motion.h2>
@@ -602,11 +640,11 @@ const PurdueLogo = () => (
 
 const EducationSection = () => {
   return (
-    <section className="py-24 border-t border-border/40">
+    <section className="py-16 md:py-24 border-t border-border/40">
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: "-50px" }}
         variants={staggerContainer}
       >
         <motion.h2 variants={fadeInUp} className="text-sm font-bold tracking-widest text-primary uppercase mb-12">Education</motion.h2>
