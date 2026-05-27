@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, Linkedin, Mail, MapPin, ChevronRight, Award, ArrowUpRight, ChevronDown } from "lucide-react";
+import { ExternalLink, Github, Linkedin, Mail, MapPin, ChevronRight, Award, ArrowUpRight, ChevronDown, Quote } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,6 +13,9 @@ import assistMoreScreenshot from "/assets/screenshot-1778724702611-XCF7f-bv.png"
 import simpleSelfEmployScreenshot from "/assets/screenshot-1778727490596-p-4iUBbj.png";
 import kennesawStateLogo from "/assets/Kennesaw.svg";
 import purdueLogo from "/assets/Purdue.svg";
+import awsAiPractitionerBadge from "/assets/aws-ai-practitioner.png";
+import awsAgenticAiBadge from "/assets/aws-agentic-ai.png";
+import psmIBadge from "/assets/psm-i.png";
 
 // Animation Variants
 const fadeInUp = {
@@ -194,7 +197,7 @@ const AboutSection = () => {
             Today, I am a lead engineer at Origami Risk; both managing a team and developing as an engineer. We build complex, industry-recognized AI-enhanced RMIS systems. My philosophy is: be tool agnostic, focus on real value delivery. Achieving true 10-100x efficiency isn't just leveraging AI, but training and uplifting your team and organization to improve everyone's job satisfaction and output.
           </p>
           <p>
-            I pride myself on my abilities to constantly context switch, my servant leader and player-coach management style, and my ability to build genuine connection with clients and coworkers. I standout from most engineers because of my product vision and strong interpersonal skills.
+            I pride myself on my abilities to constantly context switch, my servant leader and player-coach management style, and my ability to build genuine connection with clients and coworkers. I standout from other engineers because of my combination of engineering skill, product vision and strong interpersonal skills.
           </p>
         </div>
       </motion.div>
@@ -514,6 +517,79 @@ const ProjectsSection = () => {
   );
 };
 
+const certificationsData = [
+  {
+    title: "AWS Certified AI Practitioner",
+    description:
+      "Earners of this badge understand AI, ML, and generative AI concepts, methods, and strategies in general and on AWS. They can determine the correct types of AI/ML technologies to apply to specific use cases and know how to use AI, ML, and generative AI technologies responsibly. They are familiar with the AWS Global Infrastructure, core AWS services and use cases, AWS service pricing models, and the AWS shared responsibility model for security and compliance in the AWS Cloud.",
+    link: "https://www.credly.com/badges/dfa57735-1b5b-499b-9e36-80d5a2fe9adf",
+    image: awsAiPractitionerBadge,
+    testId: "link-cert-aws-ai-practitioner",
+  },
+  {
+    title: "AWS Agentic AI Demonstrated",
+    description:
+      "Earners of this badge have passed the AWS Agentic AI Demonstrated exam lab. Passing this microcredential assessment represents a proficiency in several AWS Services involving agentic AI. Recipients completed timed challenges involving troubleshooting, repairing, integrating, and enhancing Bedrock Agents and Bedrock Guardrails in an AWS environment.",
+    link: "https://www.credly.com/badges/a819fc3c-04bb-492d-9328-1281241d0537",
+    image: awsAgenticAiBadge,
+    testId: "link-cert-aws-agentic-ai",
+  },
+  {
+    title: "Professional Scrum Master™ I (PSM I)",
+    description:
+      "Those who earn the globally recognized Professional Scrum Master I (PSM I) certification have demonstrated a fundamental level of Scrum mastery, including the concepts of applying Scrum, and proven an understanding of Scrum as described in the Scrum Guide. This individual has also demonstrated a consistent use of terminology and approach to Scrum.",
+    link: "https://www.credly.com/badges/a20b0b71-51b9-4d15-8810-e9464afe3fd6",
+    image: psmIBadge,
+    testId: "link-cert-psm-i",
+  },
+];
+
+const CertificationsSection = () => {
+  return (
+    <section id="certifications" className="py-16 md:py-24 border-t border-border/40">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={staggerContainer}
+      >
+        <motion.h2 variants={fadeInUp} className="text-sm font-bold tracking-widest text-primary uppercase mb-12">
+          Certifications
+        </motion.h2>
+
+        <div className="space-y-6">
+          {certificationsData.map((cert) => (
+            <motion.a
+              key={cert.title}
+              href={cert.link}
+              target="_blank"
+              rel="noreferrer"
+              data-testid={cert.testId}
+              variants={fadeInUp}
+              className="group flex flex-col sm:flex-row gap-6 sm:gap-8 bg-secondary/20 rounded-2xl border border-border/50 p-6 md:p-8 transition-colors hover:border-primary/30 hover:bg-secondary/30"
+            >
+              <div className="shrink-0 flex items-start justify-center sm:justify-start">
+                <img
+                  src={cert.image}
+                  alt={`${cert.title} badge`}
+                  className="w-28 h-28 sm:w-32 sm:h-32 object-contain drop-shadow-sm"
+                />
+              </div>
+              <div className="flex flex-col min-w-0">
+                <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">{cert.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed flex-1">{cert.description}</p>
+                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-primary mt-5 group-hover:text-primary/70 transition-colors">
+                  View on Credly <ArrowUpRight className="w-3 h-3" />
+                </span>
+              </div>
+            </motion.a>
+          ))}
+        </div>
+      </motion.div>
+    </section>
+  );
+};
+
 const stackSections = [
   {
     id: "backend",
@@ -697,6 +773,76 @@ const EducationSection = () => {
   );
 };
 
+const testimonialsData = [
+  {
+    quote:
+      "It's rare that someone is a great engineer and a great leader, but Tyler is definitely both. He is intelligent, positive, selfless, driven, and endlessly curious. Our team ran like a well oiled machine - we accomplished a lot, and there was never tension or drama.",
+    role: "Direct report",
+  },
+  {
+    quote:
+      "It is no exaggeration to say that Tyler is the best manager I've ever worked for. He is incredibly supportive of his team, goes out of his way to unblock and understand any issues individual contributors are facing, and takes an active role in ensuring all his team members are developing in their careers.",
+    role: "Direct report",
+  },
+  {
+    quote:
+      "He is easily one of the most qualified and exceptional managers I have ever had the pleasure of knowing. Tyler's commitment to his position and the team he works with is at the highest level. He knows his job and this company's software better than just about anyone else. Always willing and available to help, Tyler exemplifies what you would want in a manager or employee of any kind.",
+    role: "Senior Direct Report",
+  },
+  {
+    quote:
+      "...he was an exceptional collaborator with Product, helping design scalable architecture for high-impact features while keeping both technical quality and client needs front and center.",
+    role: "Product Manager",
+  },
+  {
+    quote:
+      "We collaborated on a critical project that required re-architecting our email processing system - previously attempted unsuccessfully years earlier. Under significant pressure, Tyler not only led his team but played a pivotal role in designing a solution using AWS Lambda services.",
+    role: "Engineering Director",
+  },
+];
+
+const TestimonialsSection = () => {
+  return (
+    <section className="py-16 md:py-24 border-t border-border/40 bg-secondary/30 -mx-6 px-6 sm:-mx-8 sm:px-8">
+      <div className="max-w-5xl mx-auto">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={staggerContainer}
+        >
+          <motion.h2 variants={fadeInUp} className="text-sm font-bold tracking-widest text-primary uppercase mb-12">
+            Testimonials
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+            {testimonialsData.map((testimonial, index) => (
+              <motion.blockquote
+                key={testimonial.quote.slice(0, 48)}
+                variants={fadeInUp}
+                className={[
+                  "bg-background border border-border p-8 rounded-2xl shadow-sm flex flex-col lg:col-span-2",
+                  index === 3 && "lg:col-start-2",
+                  index === 4 && "lg:col-start-4",
+                  index === 5 && "lg:col-start-3",
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+              >
+                <Quote className="w-6 h-6 text-primary/40 mb-4 shrink-0" />
+                <p className="text-foreground/90 text-sm leading-relaxed flex-1">&ldquo;{testimonial.quote}&rdquo;</p>
+                <footer className="text-xs text-muted-foreground mt-6 pt-4 border-t border-border/40">
+                  — {testimonial.role}
+                </footer>
+              </motion.blockquote>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 const Footer = () => {
   return (
     <footer id="contact" className="pt-32 pb-16 border-t border-border/40">
@@ -758,8 +904,10 @@ export default function Home() {
         <ExperienceSection />
         <AwardsSection />
         <ProjectsSection />
+        <CertificationsSection />
         <TechStackSection />
         <EducationSection />
+        <TestimonialsSection />
         <Footer />
       </main>
     </div>
