@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, Linkedin, Mail, MapPin, ChevronRight, Award, ArrowUpRight, ChevronDown, Quote } from "lucide-react";
+import { ExternalLink, Github, Linkedin, Mail, MapPin, ChevronRight, ChevronLeft, Award, ArrowUpRight, ChevronDown, Quote, X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   SiDotnet, SiReact, SiTypescript, SiVite,
   SiTailwindcss, SiMongodb, SiOpenai, SiGithub,
-  SiPostgresql, SiAuth0, SiReactquery, SiTemporal
+  SiPostgresql, SiAuth0, SiReactquery, SiTemporal,
+  SiGooglecloud
 } from "react-icons/si";
 import { TbBrandCSharp, TbBrandAws, TbBrandAzure, TbSparkles, TbCursorText, TbBrain } from "react-icons/tb";
 import assistMoreScreenshot from "/assets/screenshot-1778724702611-XCF7f-bv.png";
+import assistMoreLandingScreenshot from "/assets/assistmore-landing.png";
+import assistMoreChatScreenshot from "/assets/assistmore-chat.png";
 import simpleSelfEmployScreenshot from "/assets/screenshot-1778727490596-p-4iUBbj.png";
+import gaHubAskScreenshot from "/assets/ga-hub-ask.png";
+import gaHubDocsScreenshot from "/assets/ga-hub-docs.png";
+import gaHubLandingScreenshot from "/assets/ga-hub-landing.png";
 import kennesawStateLogo from "/assets/Kennesaw.svg";
 import purdueLogo from "/assets/Purdue.svg";
 import awsAiPractitionerBadge from "/assets/aws-ai-practitioner.png";
@@ -426,6 +432,218 @@ const ArchDiagram = () => (
   </div>
 );
 
+const GAHubArchDiagram = () => (
+  <div className="w-full select-none">
+    <div className="relative rounded-2xl border border-sky-200/30 dark:border-sky-800/20 bg-sky-50/20 dark:bg-sky-950/10 p-5 sm:p-6 md:p-8 pt-8 md:pt-10">
+      <div className="absolute -top-3 left-5">
+        <span className="inline-flex items-center gap-1.5 bg-sky-500 text-white text-[11px] font-medium tracking-wide px-3 py-1 rounded-full shadow-sm">
+          <SiGooglecloud className="w-3 h-3" />
+          Google Cloud
+        </span>
+      </div>
+
+      <div className="flex flex-col md:flex-row items-stretch md:items-start gap-3 md:gap-4">
+        <div className="flex-1 min-w-0 rounded-xl bg-white dark:bg-zinc-900 shadow-sm border border-zinc-100 dark:border-zinc-800 p-4">
+          <span className="text-[11px] font-medium text-sky-500 tracking-wide">Frontend</span>
+          <p className="text-sm font-semibold text-foreground mt-1.5 leading-snug">React &middot; TypeScript</p>
+          <p className="text-xs text-muted-foreground mt-0.5">Vite &middot; Tailwind CSS &middot; shadcn/ui &middot; AG Grid</p>
+        </div>
+
+        <ArrowHorizontal />
+        <ArrowDown />
+
+        <div className="flex-1 min-w-0 rounded-xl bg-white dark:bg-zinc-900 shadow-sm border border-zinc-100 dark:border-zinc-800 p-4">
+          <span className="text-[11px] font-medium text-emerald-500 tracking-wide">API &middot; Cloud Run</span>
+          <p className="text-sm font-semibold text-foreground mt-1.5 leading-snug">FastAPI &middot; Python</p>
+          <p className="text-xs text-muted-foreground mt-0.5">RAG Pipeline &middot; Document Processor</p>
+          <div className="mt-3 inline-flex items-center gap-1.5 bg-violet-50 dark:bg-violet-950/30 border border-violet-200/50 dark:border-violet-800/30 rounded-lg px-2.5 py-1">
+            <div className="w-1.5 h-1.5 rounded-full bg-violet-400" />
+            <span className="text-[11px] font-medium text-violet-600 dark:text-violet-400">Embed → Search → Generate</span>
+          </div>
+        </div>
+
+        <ArrowHorizontal />
+        <ArrowDown />
+
+        <div className="flex-1 min-w-0 space-y-3">
+          <div className="rounded-xl bg-white dark:bg-zinc-900 shadow-sm border border-zinc-100 dark:border-zinc-800 p-4">
+            <span className="text-[11px] font-medium text-amber-500 tracking-wide">Storage</span>
+            <p className="text-sm font-semibold text-foreground mt-1.5 leading-snug">Cloud Firestore</p>
+            <p className="text-xs text-muted-foreground mt-0.5">Metadata &middot; Chunks &middot; Chat History</p>
+          </div>
+          <div className="rounded-xl bg-white dark:bg-zinc-900 shadow-sm border border-zinc-100 dark:border-zinc-800 p-4">
+            <span className="text-[11px] font-medium text-amber-500 tracking-wide">Object Storage</span>
+            <p className="text-sm font-semibold text-foreground mt-1.5 leading-snug">Cloud Storage</p>
+            <p className="text-xs text-muted-foreground mt-0.5">Raw PDF &middot; TXT Files</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex justify-center py-1.5">
+      <svg width="2" height="28" viewBox="0 0 2 28" className="text-violet-300 dark:text-violet-600">
+        <line x1="1" y1="0" x2="1" y2="22" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3" />
+        <path d="M1 22L3.5 28H-1.5L1 22Z" fill="currentColor" />
+      </svg>
+    </div>
+
+    <div className="flex justify-center">
+      <div className="rounded-xl bg-white dark:bg-zinc-900 shadow-sm border border-zinc-100 dark:border-zinc-800 px-5 py-3 text-center">
+        <span className="text-[11px] font-medium text-zinc-400 dark:text-zinc-500 tracking-wide">AI &middot; Vertex AI</span>
+        <p className="text-sm font-semibold text-foreground mt-0.5">Gemini 2.5 Flash</p>
+        <p className="text-xs text-muted-foreground">text-embedding-004 &middot; Vector Search</p>
+      </div>
+    </div>
+  </div>
+);
+
+const ScreenshotCarousel = ({ screenshots }: { screenshots: { src: string; alt: string }[] }) => {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [lightbox, setLightbox] = useState(false);
+
+  const prev = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setActiveIdx((i) => (i === 0 ? screenshots.length - 1 : i - 1));
+  };
+  const next = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setActiveIdx((i) => (i === screenshots.length - 1 ? 0 : i + 1));
+  };
+
+  React.useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(false);
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  });
+
+  return (
+    <>
+      <div className="relative w-full h-full flex flex-col">
+        <div
+          className="relative flex-1 overflow-hidden rounded-xl shadow-2xl border border-border/50 group/carousel cursor-pointer"
+          onClick={() => setLightbox(true)}
+        >
+          <img
+            src={screenshots[activeIdx].src}
+            alt={screenshots[activeIdx].alt}
+            className="w-full h-full object-cover object-top transition-opacity duration-500"
+          />
+
+          <button
+            onClick={(e) => { e.stopPropagation(); prev(); }}
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-200 hover:bg-background shadow-sm"
+            aria-label="Previous screenshot"
+          >
+            <ChevronLeft className="w-4 h-4 text-foreground" />
+          </button>
+
+          <button
+            onClick={(e) => { e.stopPropagation(); next(); }}
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-background/80 backdrop-blur-sm border border-border/50 flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-200 hover:bg-background shadow-sm"
+            aria-label="Next screenshot"
+          >
+            <ChevronRight className="w-4 h-4 text-foreground" />
+          </button>
+        </div>
+
+        {screenshots.length > 1 && (
+          <div className="flex justify-center gap-2 mt-4">
+            {screenshots.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveIdx(i)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  i === activeIdx
+                    ? "bg-primary w-6"
+                    : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                }`}
+                aria-label={`View screenshot ${i + 1}`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
+      <AnimatePresence>
+        {lightbox && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center"
+            onClick={() => setLightbox(false)}
+          >
+            <button
+              onClick={() => setLightbox(false)}
+              className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+              aria-label="Close fullscreen"
+            >
+              <X className="w-5 h-5 text-white" />
+            </button>
+
+            {screenshots.length > 1 && (
+              <button
+                onClick={(e) => prev(e)}
+                className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                aria-label="Previous screenshot"
+              >
+                <ChevronLeft className="w-5 h-5 text-white" />
+              </button>
+            )}
+
+            <motion.img
+              key={activeIdx}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              src={screenshots[activeIdx].src}
+              alt={screenshots[activeIdx].alt}
+              className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+
+            {screenshots.length > 1 && (
+              <button
+                onClick={(e) => next(e)}
+                className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                aria-label="Next screenshot"
+              >
+                <ChevronRight className="w-5 h-5 text-white" />
+              </button>
+            )}
+
+            {screenshots.length > 1 && (
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+                {screenshots.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={(e) => { e.stopPropagation(); setActiveIdx(i); }}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      i === activeIdx ? "bg-white w-6" : "bg-white/40 hover:bg-white/60"
+                    }`}
+                    aria-label={`View screenshot ${i + 1}`}
+                  />
+                ))}
+              </div>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
+
 const ProjectsSection = () => {
   return (
     <section id="projects" className="py-16 md:py-24 border-t border-border/40">
@@ -458,13 +676,13 @@ const ProjectsSection = () => {
               </div>
             </div>
 
-            <div className="bg-muted/30 p-8 lg:p-0 flex items-center justify-center relative overflow-hidden min-h-[300px]">
-              <div className="relative w-[85%] lg:w-full lg:-right-12 lg:top-8 rounded-xl lg:rounded-tl-xl overflow-hidden shadow-2xl border border-border/50 transition-transform duration-700 group-hover:-translate-y-2">
-                <img
-                  src={assistMoreScreenshot}
-                  alt="AssistMore Application Preview"
-                  className="w-full h-auto object-cover"
-                />
+            <div className="bg-muted/30 p-8 flex items-center justify-center relative overflow-hidden min-h-[300px]">
+              <div className="w-full max-w-[95%]">
+                <ScreenshotCarousel screenshots={[
+                  { src: assistMoreLandingScreenshot, alt: "AssistMore Landing Page" },
+                  { src: assistMoreChatScreenshot, alt: "AssistMore AI Chat — Onboarding and task management" },
+                  { src: assistMoreScreenshot, alt: "AssistMore Application Dashboard" },
+                ]} />
               </div>
             </div>
           </div>
@@ -472,6 +690,63 @@ const ProjectsSection = () => {
           <div className="border-t border-border/30 px-8 md:px-14 py-8 md:py-10">
             <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-5">Architecture</p>
             <ArchDiagram />
+          </div>
+        </motion.div>
+
+        {/* GA Policy Intelligence Hub */}
+        <motion.div variants={fadeInUp} className="group relative bg-secondary/20 rounded-3xl overflow-hidden border border-border/50 mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
+            <div className="p-10 md:p-14 flex flex-col justify-center">
+              <div className="mb-4 flex items-center gap-4">
+                <h3 className="text-3xl font-bold tracking-tight">GA Policy Intelligence Hub</h3>
+                <Badge variant="outline" className="rounded-full px-3 py-0.5 border-primary/20 text-primary">RAG Demo</Badge>
+              </div>
+              <p className="text-muted-foreground text-base leading-relaxed mb-4 max-w-md">
+                A multi-document Retrieval-Augmented Generation (RAG) platform for global affairs policy teams. Upload regulatory briefs, trade assessments, and compliance documents — then query across the entire knowledge base with AI-powered natural language search. Answers are grounded in actual document content with page-level source citations.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-8">
+                <Badge variant="secondary" className="font-normal text-xs">FastAPI</Badge>
+                <Badge variant="secondary" className="font-normal text-xs">Gemini 2.5 Flash</Badge>
+                <Badge variant="secondary" className="font-normal text-xs">Vertex AI Vector Search</Badge>
+                <Badge variant="secondary" className="font-normal text-xs">Cloud Firestore</Badge>
+                <Badge variant="secondary" className="font-normal text-xs">React</Badge>
+                <Badge variant="secondary" className="font-normal text-xs">TypeScript</Badge>
+                <Badge variant="secondary" className="font-normal text-xs">shadcn/ui</Badge>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3">
+                <Button asChild className="rounded-full">
+                  <a href="https://ga-policy-hub.web.app/" target="_blank" rel="noreferrer" data-testid="link-gahub-demo">
+                    View Live <ExternalLink className="w-4 h-4 ml-2" />
+                  </a>
+                </Button>
+                <Button asChild variant="ghost" className="rounded-full hover:bg-background">
+                  <a href="https://github.com/SharkeyDevelopment/globalaffairs-frontend" target="_blank" rel="noreferrer" data-testid="link-gahub-frontend">
+                    Frontend <Github className="w-4 h-4 ml-2" />
+                  </a>
+                </Button>
+                <Button asChild variant="ghost" className="rounded-full hover:bg-background">
+                  <a href="https://github.com/SharkeyDevelopment/globalaffairs-backend" target="_blank" rel="noreferrer" data-testid="link-gahub-backend">
+                    Backend <Github className="w-4 h-4 ml-2" />
+                  </a>
+                </Button>
+              </div>
+            </div>
+
+            <div className="bg-muted/30 p-8 flex items-center justify-center relative overflow-hidden min-h-[300px]">
+              <div className="w-full max-w-[95%]">
+                <ScreenshotCarousel screenshots={[
+                  { src: gaHubLandingScreenshot, alt: "Landing Page — GA Policy Intelligence Hub" },
+                  { src: gaHubAskScreenshot, alt: "AI Q&A — Ask questions across uploaded policy documents with source citations" },
+                  { src: gaHubDocsScreenshot, alt: "Document Management — Upload, tag, and manage policy documents" },
+                ]} />
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-border/30 px-8 md:px-14 py-8 md:py-10">
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-5">Architecture</p>
+            <GAHubArchDiagram />
           </div>
         </motion.div>
 
@@ -486,15 +761,20 @@ const ProjectsSection = () => {
               <p className="text-muted-foreground text-base leading-relaxed mb-10 max-w-md">
                 The CRM built for the independent contractor. No bloat, no learning curve — just quotes, jobs, and invoices in seconds.
               </p>
-              <div className="flex items-center gap-4 mt-auto">
+              <div className="flex flex-wrap items-center gap-3 mt-auto">
                 <Button asChild className="rounded-full">
                   <a href="https://simpleselfemploy.com/login" target="_blank" rel="noreferrer" data-testid="link-sse-demo">
                     View Live <ExternalLink className="w-4 h-4 ml-2" />
                   </a>
                 </Button>
                 <Button asChild variant="ghost" className="rounded-full hover:bg-background">
-                  <a href="https://github.com/SharkeyDevelopment" target="_blank" rel="noreferrer" data-testid="link-sse-repo">
-                    Source Code <Github className="w-4 h-4 ml-2" />
+                  <a href="https://github.com/SharkeyDevelopment/sse-frontend" target="_blank" rel="noreferrer" data-testid="link-sse-frontend">
+                    Frontend <Github className="w-4 h-4 ml-2" />
+                  </a>
+                </Button>
+                <Button asChild variant="ghost" className="rounded-full hover:bg-background">
+                  <a href="https://github.com/SharkeyDevelopment/sse-backend" target="_blank" rel="noreferrer" data-testid="link-sse-backend">
+                    Backend <Github className="w-4 h-4 ml-2" />
                   </a>
                 </Button>
               </div>
