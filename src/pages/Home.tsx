@@ -874,7 +874,7 @@ const stackSections = [
   {
     id: "backend",
     title: "APIs & Backend",
-    summary: "C# · .NET · REST · Security",
+    summary: "C# .NET",
     body: `A design-oriented backend engineer who leans heavily on proven patterns — dependency injection, repository pattern, and service abstractions keep code testable and maintainable. Comfortable with async/await and Task-based parallelism for high-throughput workloads. Strong foundation in security and authentication across OAuth, JWT, and identity providers. Primary professional stack is C# on .NET, building everything from REST APIs to background workers.`,
     tags: ["C#", ".NET", "REST APIs", "Dependency Injection", "Async / Tasks", "Parallelism", "OAuth", "JWT", "Security"]
   },
@@ -883,21 +883,21 @@ const stackSections = [
     title: "Frontend",
     summary: "React · TypeScript · Vite",
     body: `Builds reusable, maintainable component libraries in React/Vite/TypeScript — from design systems to full product UIs. Comfortable with standard patterns: typed API clients, TanStack Query for server state, and libraries like AG Grid, shadcn/ui, and Tailwind CSS for polished, accessible interfaces. Introduced React and TanStack Query adoption org-wide at Origami Risk.`,
-    tags: ["React", "TypeScript", "Vite", "TanStack Query", "shadcn/ui", "Tailwind CSS", "AG Grid", "Framer Motion"]
+    tags: ["React", "TypeScript", "Vite", "TanStack Query", "shadcn/ui", "Tailwind CSS", "AG Grid"]
   },
   {
     id: "database",
     title: "Database",
-    summary: "SQL · ORM · NoSQL",
+    summary: "SQL Server · MongoDB",
     body: `Strong SQL fundamentals and object-relational model design as the professional foundation — complex queries, schema design, and performance tuning across large datasets. Also worked with DynamoDB and MongoDB for document/key-value workloads, and blob storage like Azure Blob Storage and AWS S3 for object persistence.`,
-    tags: ["SQL", "SQL Server", "Drizzle ORM", "DynamoDB", "MongoDB", "Azure Blob Storage", "AWS S3"]
+    tags: ["SQL", "SQL Server", "DynamoDB", "MongoDB", "Azure Blob Storage", "AWS S3"]
   },
   {
     id: "cloud",
     title: "Cloud",
-    summary: "AWS · Azure",
-    body: `Professional experience across AWS services — most notably owning a zero-downtime migration of global email infrastructure using AWS SES, S3, Lambda, and DynamoDB to process millions of emails without issue. Also uses Secrets Manager, SQS for queueing, and AWS Bedrock for AI solutions and governance. Uses Azure for personal projects including the AssistMore application — Static Web Apps, Azure AI Foundry, and Azure-managed services.`,
-    tags: ["AWS SES", "AWS Lambda", "AWS S3", "DynamoDB", "AWS Bedrock", "SQS", "Secrets Manager", "Azure Static Web Apps", "Azure AI Foundry"]
+    summary: "AWS · Azure · Google Cloud",
+    body: `Professional experience across AWS services — most notably owning a zero-downtime migration of global email infrastructure using AWS SES, S3, Lambda, and DynamoDB to process millions of emails without issue. Also uses Secrets Manager, SQS for queueing, and AWS Bedrock for AI solutions and governance. Uses Azure for personal projects including the AssistMore application — Static Web Apps, Azure AI Foundry, and Azure-managed services. Experimented with Google Cloud for the GA Policy Intelligence Hub project — Vertex AI Vector Search, Cloud Firestore, and Cloud Run.`,
+    tags: ["AWS SES", "AWS Lambda", "AWS S3", "DynamoDB", "AWS Bedrock", "SQS", "Secrets Manager", "Azure Static Web Apps", "Azure AI Foundry", "Vertex AI Vector Search", "Cloud Firestore", "Cloud Run"]
   },
   {
     id: "ai",
