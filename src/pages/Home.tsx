@@ -138,7 +138,7 @@ const HeroSection = () => {
           </motion.h1>
           
           <motion.p variants={fadeInUp} className="text-lg sm:text-xl md:text-2xl text-muted-foreground font-light mb-10 max-w-2xl leading-relaxed">
-            Platform Architect & AI Systems Architect. Designing robust, scalable architectures with a focus on precision and performance.
+            Platform Architect & Lead Software Engineer. Designing robust, scalable architectures with a focus on precision and performance.
           </motion.p>
           
           <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-4">
@@ -200,7 +200,7 @@ const AboutSection = () => {
             I began my career as a Purdue educated mechanical engineer. The transition to software wasn't just a career shift; it was a realization that the same principles of system design and optimization applied elegantly to code.
           </p>
           <p>
-            Today, I am a Platform Architect at Origami Risk, leading the direction of our software, AI, and cloud architecture. We build complex, industry-recognized AI-enhanced RMIS systems. My philosophy is: be tool agnostic, focus on real value delivery. Achieving true 10-100x efficiency isn't just leveraging AI, but training and uplifting your team and organization to improve everyone's job satisfaction and output.
+            Today, I am a Platform Architect at Origami Risk, leading the direction of our software, AI, and cloud architecture. We build complex, industry-recognized AI-enhanced risk and insurance systems. My philosophy is: be tool agnostic, focus on real value delivery. Achieving true 10-100x efficiency isn't just leveraging AI, but training and uplifting your team and organization to improve everyone's job satisfaction and output.
           </p>
           <p>
             I pride myself on my abilities to constantly context switch, my servant leader and player-coach management style, and my ability to build genuine connection with clients and coworkers. I standout from other engineers because of my combination of engineering skill, product vision and strong interpersonal skills.
